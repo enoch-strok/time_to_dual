@@ -1,3 +1,17 @@
+require('dotenv').config();
+
+// Dependencies
+const express = require('express');
+const cors = require('cors');
+
+// Initialize the App
+const app = express();
+app.use(cors());
+
+// Global Variables
+const PORT = process.env.PORT;
+
+
 /////////// Card Class - Creation ////////////////////////////////////////////////////////////
 class Card {
     constructor(name, cost){
@@ -41,6 +55,11 @@ class Effect extends Card {
         }
     }
 }
+
+
+
+
+
 /////////// Red Belt Card - Creation ////////////////////////////////////////////////////////////
 const redBeltCard = new Unit("Red Belt Ninja", 3, 3, 4);
 console.log(redBeltCard);
@@ -73,3 +92,8 @@ console.log(redBeltCard);
 console.log(blackBeltCard);
 redBeltCard.attack_res(blackBeltCard);
 console.log(blackBeltCard);
+
+
+
+// startServer();
+app.listen(PORT, () => console.log('Server is running on PORT: ', PORT));
