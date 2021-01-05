@@ -15,6 +15,7 @@ class Unit extends Card {
     }
     attack_res(target){
         target.res = target.res - this.power;
+        console.log(`${this.name} attacked ${target.name}`)
     }
 }
 
@@ -57,8 +58,8 @@ console.log(blackBeltCard);
 const unhandledPromiseRejection = new Effect("Unhandled Promise Rejection", 1, "reduce target's resilience by 2", "res", -2)
 // console.log(unhandledPromiseRejection);
 /////////// Nerf Effect - Played
-unhandledPromiseRejection.play(blackBeltCard);
-console.log(blackBeltCard);
+unhandledPromiseRejection.play(redBeltCard);
+console.log(redBeltCard);
 
 
 /////////// Nerf Effect - Creation ////////////////////////////////////////////////////////////
@@ -68,3 +69,7 @@ const pairProgramming = new Effect("Pair Programming", 3, "increase target's pow
 pairProgramming.play(redBeltCard);
 console.log(redBeltCard);
 
+/////////// Red vs Black - Attack
+console.log(blackBeltCard);
+redBeltCard.attack_res(blackBeltCard);
+console.log(blackBeltCard);
